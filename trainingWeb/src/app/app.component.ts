@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { post } from './models/post';
 import { todos } from './models/todos';
 import { UserService } from './service/user.service';
 
@@ -11,13 +12,22 @@ import { UserService } from './service/user.service';
 export class AppComponent {
 
   title = 'trainingWeb';
-  dataInfo: todos[];
+  lstTodos: todos[] =[];
+  lstTodosParameters: todos[] =[];
+  lstPost: post[] =[];
+
+  displayedColumns: string[] = ['userId', 'id', 'title', 'completed'];
 
   constructor(private _user : UserService){}
 
   ngOnInit(){
     this._user.getTodos().subscribe(data =>{
-      this.dataInfo=data;
+      this.lstTodos=data;
     });
+
+    this._user.getTodosByParameters().subscribe(data =>{
+      this.lstTodosParameters=data;
+    });
+    const dataSource = this.lstTodos;
   }
 }

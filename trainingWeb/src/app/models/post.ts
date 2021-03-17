@@ -1,6 +1,6 @@
-export class todos{
+export class post{
   userId: number| undefined;
   id: number| undefined;
   title: string | undefined;
-  completed: boolean | undefined;
+  body: string | undefined;
 }
