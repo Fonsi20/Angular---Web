@@ -1,2 +1,18 @@
 <router-outlet></router-outlet>
-<p>{{dataInfo}}</p>
+<h2>Get Request : TODOS - dummy data</h2>
+<div>
+  <table>
+    <tr>
+      <th>User Id</th>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Completed</th>
+    </tr>
+    <tr *ngFor="let data of dataInfo">
+      <td>{{data.userId}}</td>
+      <td>{{data.id}}</td>
+      <td>{{data.title}}</td>
+      <td>{{data.completed}}</td>
+    </tr>
+  </table>
+</div>

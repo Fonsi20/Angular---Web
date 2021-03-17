@@ -1,5 +1,7 @@
 import {Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http';
+import { todos } from '../models/todos';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn:'root'
@@ -7,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class UserService{
   constructor( private _http : HttpClient ){}
 
-  getData(){
+  getTodos(): Observable<any>{
     let url="https://jsonplaceholder.typicode.com/todos";
     return this._http.get(url);
   }

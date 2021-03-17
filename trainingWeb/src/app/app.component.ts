@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { todos } from './models/todos';
 import { UserService } from './service/user.service';
+
 
 @Component({
   selector: 'app-root',
@@ -9,10 +11,12 @@ import { UserService } from './service/user.service';
 export class AppComponent {
 
   title = 'trainingWeb';
-  dataInfo: any;
+  dataInfo: todos[];
 
-  constructor(private _user : UserService){
-    this._user.getData().subscribe(data =>{
+  constructor(private _user : UserService){}
+
+  ngOnInit(){
+    this._user.getTodos().subscribe(data =>{
       this.dataInfo=data;
     });
   }
